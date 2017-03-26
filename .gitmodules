@@ -1,0 +1,3 @@
+[submodule "fo4-asp.wiki"]
+	path = fo4-asp.wiki
+	url = git://github.com/cadpnq/fo4-asp.wiki
