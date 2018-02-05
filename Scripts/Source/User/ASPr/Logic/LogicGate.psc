@@ -2,9 +2,9 @@ Scriptname ASPr:Logic:LogicGate Extends ASPr:Component
 
 Import Binlib
 
-ObjectReference A
-ObjectReference B
-ObjectReference Out
+ASPr:Input A
+ASPr:Input B
+ASPr:Output Out
 
 Function Init()
   Height = 1
@@ -13,13 +13,13 @@ Function Init()
 EndFunction
 
 Function Placed()
-  A = SpawnConnector(TYPE_INPUT, SIDE_TOP, ORIGIN_DEFAULT, 0, TRIGGER_CHANGE, "UpdateState")
-  B = SpawnConnector(TYPE_INPUT, SIDE_BOTTOM, ORIGIN_DEFAULT, 0, TRIGGER_CHANGE, "UpdateState")
-  Out = SpawnConnector(TYPE_OUTPUT, SIDE_RIGHT)
+  A = SpawnConnector(TYPE_INPUT, SIDE_TOP, ORIGIN_DEFAULT, 0, TRIGGER_CHANGE, "UpdateState") as ASPr:Input
+  B = SpawnConnector(TYPE_INPUT, SIDE_BOTTOM, ORIGIN_DEFAULT, 0, TRIGGER_CHANGE, "UpdateState") as ASPr:Input
+  Out = SpawnConnector(TYPE_OUTPUT, SIDE_RIGHT) as ASPr:Output
 EndFunction
 
 Function UpdateState()
-  Out.SetOpen(!LogicFunction(A.IsPowered(), B.IsPowered()))
+  Out.Set(LogicFunction(A.Value(), B.Value()))
 EndFunction
 
 bool Function LogicFunction(bool A1, bool A2)
