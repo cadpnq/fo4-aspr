@@ -27,6 +27,6 @@ int Property TRIGGER_HIGH = 4 Auto Hidden Const
 
 int Property Input_id = 0x00359B Auto Hidden Const
 int Property Output_id = 0x00359C Auto Hidden Const
-int Property Transmitter_id = 0x003599 Auto Hidden Const
-int Property Receiver_id = 0x00359A Auto Hidden Const
+int Property Receiver_id = 0x003599 Auto Hidden Const
+int Property Transmitter_id = 0x00359A Auto Hidden Const
 int Property Contact_id = 0x00359D Auto Hidden Const
