@@ -2,9 +2,9 @@ Scriptname ASPr:Logic:Multibit:LogicGate Extends ASPr:Component
 
 import Binlib
 
-DataWire:Receiver A
-DataWire:Receiver B
-DataWire:Transmitter Out
+ASPr:Receiver A
+ASPr:Receiver B
+ASPr:Transmitter Out
 
 Function Init()
   Height = 1
