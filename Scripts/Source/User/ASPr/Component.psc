@@ -160,7 +160,7 @@ Function Trace(String Text, int Level)
 EndFunction
 
 ; This is probably the single most important function in the whole codebase. We're pushing as much complexity as possible out of the component scripts and into the base script. All of that has to go somewhere, and that somewhere is here. This handles spawning in, positioning, and setting up all connectors.
-ObjectReference[] Function SpawnConnectors(int Type, int Side, int Origin = 0, int Offset = 0, int Count = 1, int Trig = 0, String Handler = "")
+ObjectReference[] Function InitConnectors(int Type, int Side, int Origin = 0, int Offset = 0, int Count = 1, int Trig = 0, String Handler = "")
   ; First we check for weirdness bad enough to justify bailing out and not spawning anything.
   If (Type < 0 || Type > 4)
     Trace("Invalid type", 2)
@@ -255,47 +255,47 @@ ObjectReference[] Function SpawnConnectors(int Type, int Side, int Origin = 0, i
   Return c
 EndFunction
 
-ObjectReference Function SpawnConnector(int Type, int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
-  Return SpawnConnectors(Type, Side, Origin, Offset, 1, Trig, Handler)[0]
+ObjectReference Function InitConnector(int Type, int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
+  Return InitConnectors(Type, Side, Origin, Offset, 1, Trig, Handler)[0]
 EndFunction
 
 ASPr:Input Function InitInput(int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
-  return SpawnConnector(TYPE_INPUT, Side, Origin, Offset, Trig, Handler) as ASPr:Input
+  return InitConnector(TYPE_INPUT, Side, Origin, Offset, Trig, Handler) as ASPr:Input
 EndFunction
 
 ASPr:Output Function InitOutput(int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
-  return SpawnConnector(TYPE_OUTPUT, Side, Origin, Offset, Trig, Handler) as ASPr:Output
+  return InitConnector(TYPE_OUTPUT, Side, Origin, Offset, Trig, Handler) as ASPr:Output
 EndFunction
 
 ASPr:Transmitter Function InitTransmitter(int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
-  return SpawnConnector(TYPE_TRANSMITTER, Side, Origin, Offset, Trig, Handler) as ASPr:Transmitter
+  return InitConnector(TYPE_TRANSMITTER, Side, Origin, Offset, Trig, Handler) as ASPr:Transmitter
 EndFunction
 
 ASPr:Receiver Function InitReceiver(int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
-  return SpawnConnector(TYPE_RECEIVER, Side, Origin, Offset, Trig, Handler) as ASPr:Receiver
+  return InitConnector(TYPE_RECEIVER, Side, Origin, Offset, Trig, Handler) as ASPr:Receiver
 EndFunction
 
 ASPr:Contact Function InitContact(int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
-  return SpawnConnector(TYPE_CONTACT, Side, Origin, Offset, Trig, Handler) as ASPr:Contact
+  return InitConnector(TYPE_CONTACT, Side, Origin, Offset, Trig, Handler) as ASPr:Contact
 EndFunction
 
 
 ASPr:Input[] Function InitInputs(int Side, int Origin = 0, int Offset = 0, int Count = 1, int Trig = 0, String Handler = "")
-  return SpawnConnectors(TYPE_INPUT, Side, Origin, Offset, Count, Trig, Handler) as ASPr:Input[]
+  return InitConnectors(TYPE_INPUT, Side, Origin, Offset, Count, Trig, Handler) as ASPr:Input[]
 EndFunction
 
 ASPr:Output[] Function InitOutputs(int Side, int Origin = 0, int Offset = 0, int Count = 1, int Trig = 0, String Handler = "")
-  return SpawnConnectors(TYPE_OUTPUT, Side, Origin, Offset, Count, Trig, Handler) as ASPr:Output[]
+  return InitConnectors(TYPE_OUTPUT, Side, Origin, Offset, Count, Trig, Handler) as ASPr:Output[]
 EndFunction
 
 ASPr:Transmitter[] Function InitTransmitters(int Side, int Origin = 0, int Offset = 0, int Count = 1, int Trig = 0, String Handler = "")
-  return SpawnConnectors(TYPE_TRANSMITTER, Side, Origin, Offset, Count, Trig, Handler) as ASPr:Transmitter[]
+  return InitConnectors(TYPE_TRANSMITTER, Side, Origin, Offset, Count, Trig, Handler) as ASPr:Transmitter[]
 EndFunction
 
 ASPr:Receiver[] Function InitReceivers(int Side, int Origin = 0, int Offset = 0, int Count = 1, int Trig = 0, String Handler = "")
-  return SpawnConnectors(TYPE_RECEIVER, Side, Origin, Offset, Count, Trig, Handler) as ASPr:Receiver[]
+  return InitConnectors(TYPE_RECEIVER, Side, Origin, Offset, Count, Trig, Handler) as ASPr:Receiver[]
 EndFunction
 
 ASPr:Contact[] Function InitContacts(int Side, int Origin = 0, int Offset = 0, int Count = 1, int Trig = 0, String Handler = "")
-  return SpawnConnectors(TYPE_CONTACT, Side, Origin, Offset, Count, Trig, Handler) as ASPr:Contact[]
+  return InitConnectors(TYPE_CONTACT, Side, Origin, Offset, Count, Trig, Handler) as ASPr:Contact[]
 EndFunction
