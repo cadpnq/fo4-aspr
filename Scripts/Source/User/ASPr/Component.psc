@@ -147,6 +147,14 @@ Event OnWorkshopObjectDestroyed(ObjectReference akActionRef)
   EndWhile
 EndEvent
 
+Function Handle_Event(ObjectReference Sender, int trig)
+  var[] args = new var[0]
+  Connector_Data Connector = All[All.FindStruct("object", Sender)]
+  If (trig == Connector.trigger_type || (Connector.trigger_type == TRIGGER_CHANGE && (trig == TRIGGER_HIGH || trig == TRIGGER_LOW)))
+     CallFunction(Connector.handler, args)
+  EndIf
+EndFunction
+
 Function Trace(String Text, int Level)
   Debug.TraceUser("ASPr", ComponentName + ": " + Text, Level)
 EndFunction
@@ -251,10 +259,43 @@ ObjectReference Function SpawnConnector(int Type, int Side, int Origin = 0, int 
   Return SpawnConnectors(Type, Side, Origin, Offset, 1, Trig, Handler)[0]
 EndFunction
 
-Function Handle_Event(ObjectReference Sender, int trig)
-  var[] args = new var[0]
-  Connector_Data Connector = All[All.FindStruct("object", Sender)]
-  If (trig == Connector.trigger_type || (Connector.trigger_type == TRIGGER_CHANGE && (trig == TRIGGER_HIGH || trig == TRIGGER_LOW)))
-     CallFunction(Connector.handler, args)
-  EndIf
+ASPr:Input Function InitInput(int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
+  return SpawnConnector(TYPE_INPUT, Side, Origin, Offset, Trig, Handler) as ASPr:Input
+EndFunction
+
+ASPr:Output Function InitOutput(int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
+  return SpawnConnector(TYPE_OUTPUT, Side, Origin, Offset, Trig, Handler) as ASPr:Output
+EndFunction
+
+ASPr:Transmitter Function InitTransmitter(int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
+  return SpawnConnector(TYPE_TRANSMITTER, Side, Origin, Offset, Trig, Handler) as ASPr:Transmitter
+EndFunction
+
+ASPr:Receiver Function InitReceiver(int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
+  return SpawnConnector(TYPE_RECEIVER, Side, Origin, Offset, Trig, Handler) as ASPr:Receiver
+EndFunction
+
+ASPr:Contact Function InitContact(int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
+  return SpawnConnector(TYPE_CONTACT, Side, Origin, Offset, Trig, Handler) as ASPr:Contact
+EndFunction
+
+
+ASPr:Input[] Function InitInputs(int Side, int Origin = 0, int Offset = 0, int Count = 1, int Trig = 0, String Handler = "")
+  return SpawnConnectors(TYPE_INPUT, Side, Origin, Offset, Count, Trig, Handler) as ASPr:Input[]
+EndFunction
+
+ASPr:Output[] Function InitOutputs(int Side, int Origin = 0, int Offset = 0, int Count = 1, int Trig = 0, String Handler = "")
+  return SpawnConnectors(TYPE_OUTPUT, Side, Origin, Offset, Count, Trig, Handler) as ASPr:Output[]
+EndFunction
+
+ASPr:Transmitter[] Function InitTransmitters(int Side, int Origin = 0, int Offset = 0, int Count = 1, int Trig = 0, String Handler = "")
+  return SpawnConnectors(TYPE_TRANSMITTER, Side, Origin, Offset, Count, Trig, Handler) as ASPr:Transmitter[]
+EndFunction
+
+ASPr:Receiver[] Function InitReceivers(int Side, int Origin = 0, int Offset = 0, int Count = 1, int Trig = 0, String Handler = "")
+  return SpawnConnectors(TYPE_RECEIVER, Side, Origin, Offset, Count, Trig, Handler) as ASPr:Receiver[]
+EndFunction
+
+ASPr:Contact[] Function InitContacts(int Side, int Origin = 0, int Offset = 0, int Count = 1, int Trig = 0, String Handler = "")
+  return SpawnConnectors(TYPE_CONTACT, Side, Origin, Offset, Count, Trig, Handler) as ASPr:Contact[]
 EndFunction
