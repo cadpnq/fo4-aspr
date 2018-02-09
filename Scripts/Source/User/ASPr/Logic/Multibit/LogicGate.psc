@@ -13,9 +13,9 @@ Function Init()
 EndFunction
 
 Function Placed()
-  A = SpawnConnector(TYPE_RECEIVER, SIDE_TOP, ORIGIN_DEFAULT, 0, TRIGGER_DATA, "UpdateState") as DataWire:Receiver
-  B = SpawnConnector(TYPE_RECEIVER, SIDE_BOTTOM, ORIGIN_DEFAULT, 0, TRIGGER_DATA, "UpdateState") as DataWire:Receiver
-  Out = SpawnConnector(TYPE_TRANSMITTER, SIDE_RIGHT, ORIGIN_DEFAULT, 0) as DataWire:Transmitter
+  A = InitReceiver(SIDE_TOP, ORIGIN_DEFAULT, 0, TRIGGER_DATA, "UpdateState")
+  B = InitReceiver(SIDE_BOTTOM, ORIGIN_DEFAULT, 0, TRIGGER_DATA, "UpdateState")
+  Out = InitTransmitter(SIDE_RIGHT, ORIGIN_DEFAULT, 0)
   Out.Enabled = True
 EndFunction
 

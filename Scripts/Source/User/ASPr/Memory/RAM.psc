@@ -34,15 +34,15 @@ Function Init()
 EndFunction
 
 Function Placed()
-  DataIn = SpawnConnector(TYPE_RECEIVER, SIDE_LEFT, ORIGIN_DEFAULT, 0) as ASPr:Receiver
-  AddressIn = SpawnConnector(TYPE_RECEIVER, SIDE_LEFT, ORIGIN_DEFAULT, 1) as ASPr:Receiver
-  DataOut = SpawnConnector(TYPE_TRANSMITTER, SIDE_RIGHT, ORIGIN_DEFAULT, 0) as ASPr:Transmitter
+  DataIn = InitReceiver(SIDE_LEFT, ORIGIN_DEFAULT, 0)
+  AddressIn = InitReceiver(SIDE_LEFT, ORIGIN_DEFAULT, 1)
+  DataOut = InitTransmitter(SIDE_RIGHT, ORIGIN_DEFAULT, 0)
 
-  Store = SpawnConnector(TYPE_INPUT, SIDE_BOTTOM, ORIGIN_DEFAULT, 0)  as ASPr:Input
-  Select = SpawnConnector(TYPE_INPUT, SIDE_BOTTOM, ORIGIN_DEFAULT, 1, TRIGGER_HIGH, "OnSelect") as ASPr:Input
-  Clock = SpawnConnector(TYPE_INPUT, SIDE_BOTTOM, ORIGIN_DEFAULT, 2, TRIGGER_HIGH, "OnClock") as ASPr:Input
-  OutputEnable = SpawnConnector(TYPE_INPUT, SIDE_BOTTOM, ORIGIN_DEFAULT, 3, TRIGGER_HIGH, "OnOutput") as ASPr:Input
-  Clear = SpawnConnector(TYPE_INPUT, SIDE_BOTTOM, ORIGIN_DEFAULT, 4, TRIGGER_HIGH, "OnClear") as ASPr:Input
+  Store = InitInput(SIDE_BOTTOM, ORIGIN_DEFAULT, 0)
+  Select = InitInput(SIDE_BOTTOM, ORIGIN_DEFAULT, 1, TRIGGER_HIGH, "OnSelect")
+  Clock = InitInput(SIDE_BOTTOM, ORIGIN_DEFAULT, 2, TRIGGER_HIGH, "OnClock")
+  OutputEnable = InitInput(SIDE_BOTTOM, ORIGIN_DEFAULT, 3, TRIGGER_HIGH, "OnOutput")
+  Clear = InitInput(SIDE_BOTTOM, ORIGIN_DEFAULT, 4, TRIGGER_HIGH, "OnClear")
 EndFunction
 
 Function Die()
