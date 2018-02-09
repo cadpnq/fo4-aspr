@@ -22,10 +22,10 @@ Struct Connector_Data
   float z
 EndStruct
 
-Connector_Data[] Property Top Auto
-Connector_Data[] Property Bottom Auto
-Connector_Data[] Property Left Auto
-Connector_Data[] Property Right Auto
+Connector_Data[] Top
+Connector_Data[] Bottom
+Connector_Data[] Left
+Connector_Data[] Right
 
 Connector_Data[] All
 
