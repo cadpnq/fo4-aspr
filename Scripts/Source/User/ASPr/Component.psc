@@ -22,10 +22,10 @@ Struct Connector_Data
   float z
 EndStruct
 
-Connector_Data[] Top
-Connector_Data[] Bottom
-Connector_Data[] Left
-Connector_Data[] Right
+Connector_Data[] Property Top Auto
+Connector_Data[] Property Bottom Auto
+Connector_Data[] Property Left Auto
+Connector_Data[] Property Right Auto
 
 Connector_Data[] All
 
@@ -58,8 +58,8 @@ Event OnInit()
   float HorizontalWidth = (Width - 1) * ConnectorSpacing
   float VerticalWidth = (Height - 1) * ConnectorSpacing
 
-  float VerticalOffset = (HorizontalWidth / 2) + ConnectorSpacing
-  float HorizontalOffset = (VerticalWidth / 2) + ConnectorSpacing
+  float HorizontalOffset = (HorizontalWidth / 2) + ConnectorSpacing
+  float VerticalOffset = (VerticalWidth / 2) + ConnectorSpacing
 
   float xPos = -(HorizontalWidth / 2)
   float zPos = -(VerticalWidth / 2)
@@ -73,8 +73,8 @@ Event OnInit()
 
     Top[i].x = xPos
     Bottom[i].x = xPos
-    Top[i].z = -VerticalOffset
-    Bottom[i].z = VerticalOffset
+    Top[i].z = VerticalOffset
+    Bottom[i].z = -VerticalOffset
 
     xPos += ConnectorSpacing
 
@@ -218,27 +218,30 @@ ObjectReference[] Function SpawnConnectors(int Type, int Side, int Origin = 0, i
     step = -1
   EndIf
 
-  While (i < c.Length)
+  int j = 0
+
+  While (j < c.Length)
     ; TODO: warnings about too many connectors and/or bad placement
     Where[i].type = Type
     Where[i].trigger_type = Trig
     Where[i].handler = Handler
-    Where[i].object = c[i]
+    Where[i].object = c[j]
 
-    ASPr:Common.MoveRelativeTo(self, c[i], Where[i].x, 0, Where[i].z)
+    ASPr:Common.MoveRelativeTo(self, c[j], Where[i].x, 0, Where[i].z)
 
     If (Type == TYPE_RECEIVER && Trig == TRIGGER_DATA)
-      RegisterForCustomEvent(c[i] as DataWire:Receiver, "OnData")
+      RegisterForCustomEvent(c[j] as DataWire:Receiver, "OnData")
     ElseIf (Type == TYPE_INPUT)
       If (Trig == TRIGGER_LOW || Trig == TRIGGER_CHANGE)
-        RegisterForRemoteEvent(c[i], "OnPowerOff")
+        RegisterForRemoteEvent(c[j], "OnPowerOff")
       EndIf
       If (Trig == TRIGGER_HIGH || Trig == TRIGGER_CHANGE)
-        RegisterForRemoteEvent(c[i], "OnPowerOn")
+        RegisterForRemoteEvent(c[j], "OnPowerOn")
       EndIf
     EndIf
 
     i += step
+    j += 1
   EndWhile
 
   Return c
