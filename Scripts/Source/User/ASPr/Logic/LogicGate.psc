@@ -16,6 +16,7 @@ Function Placed()
   A = InitInput(SIDE_TOP, ORIGIN_DEFAULT, 0, TRIGGER_CHANGE, "UpdateState")
   B = InitInput(SIDE_BOTTOM, ORIGIN_DEFAULT, 0, TRIGGER_CHANGE, "UpdateState")
   Out = InitOutput(SIDE_RIGHT)
+  UpdateState()
 EndFunction
 
 Function UpdateState()

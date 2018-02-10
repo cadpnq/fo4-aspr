@@ -17,6 +17,7 @@ Function Placed()
   B = InitReceiver(SIDE_BOTTOM, ORIGIN_DEFAULT, 0, TRIGGER_DATA, "UpdateState")
   Out = InitTransmitter(SIDE_RIGHT, ORIGIN_DEFAULT, 0)
   Out.Enabled = True
+  UpdateState()
 EndFunction
 
 Function Die()
