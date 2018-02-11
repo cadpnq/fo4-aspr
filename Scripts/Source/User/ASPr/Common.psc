@@ -74,7 +74,7 @@ Function MoveRelativeTo(ObjectReference ParentObject, ObjectReference ObjectToMo
 	ObjectToMove.MoveTo(ParentObject, Xpos, Ypos, Zpos, MatchAngle)
 EndFunction
 
-int Function ReadInputs(ObjectReference[] Connectors) Global
+int Function ReadInputs(ASPr:Input[] Connectors) Global
 	int retval
 
 	int i = 0
@@ -89,7 +89,7 @@ int Function ReadInputs(ObjectReference[] Connectors) Global
 	return retval
 EndFunction
 
-Function WriteOutputs(ObjectReference[] Connectors, int Value) Global
+Function WriteOutputs(ASPr:Output[] Connectors, int Value) Global
 	int i = 0
 	While (i < Connectors.Length)
 		Connectors[i].SetOpen(GetBit(Value, i) == 0)

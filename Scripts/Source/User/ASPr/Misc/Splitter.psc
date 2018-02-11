@@ -24,5 +24,5 @@ Function Die()
 EndFunction
 
 Function UpdateState()
-  WriteOutputs(Outputs as ObjectReference[], In.value)
+  WriteOutputs(Outputs, In.value)
 EndFunction

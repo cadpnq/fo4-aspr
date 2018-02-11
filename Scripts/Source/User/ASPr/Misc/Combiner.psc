@@ -24,5 +24,5 @@ Function Die()
 EndFunction
 
 Function UpdateState()
-  Out.value = ReadInputs(Inputs as ObjectReference[])
+  Out.value = ReadInputs(Inputs)
 EndFunction
