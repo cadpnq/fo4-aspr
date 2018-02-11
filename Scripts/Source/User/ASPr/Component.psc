@@ -222,7 +222,7 @@ ObjectReference[] Function InitConnectors(int Type, int Side, int Origin = 0, in
   int step = 1
   ; this handles both ORIGIN_DOWN and ORIGIN_RIGHT
   If (Origin == ORIGIN_DOWN)
-    i = Where.Length - Offset
+    i = (Where.Length - 1) - Offset
     step = -1
   EndIf
 
