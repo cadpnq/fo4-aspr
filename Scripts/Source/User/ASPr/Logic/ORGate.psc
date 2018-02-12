@@ -3,8 +3,7 @@ Scriptname ASPr:Logic:ORGate Extends ASPr:Logic:LogicGate
 import Binlib
 
 Function Init()
-  Height = 1
-  Width = 1
+  Parent.Init()
   ComponentName = "ORGate"
 EndFunction
 

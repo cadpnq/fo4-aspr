@@ -3,8 +3,7 @@ Scriptname ASPr:Logic:Multibit:XORGate Extends ASPr:Logic:Multibit:LogicGate
 import Binlib
 
 Function Init()
-  Height = 1
-  Width = 1
+  Parent.Init()
   ComponentName = "MultibitXORGate"
 EndFunction
 

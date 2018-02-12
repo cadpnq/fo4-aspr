@@ -9,7 +9,6 @@ ASPr:Transmitter Out
 Function Init()
   Height = 1
   Width = 1
-  ComponentName = "MultibitLogicGate"
 EndFunction
 
 Function Placed()

@@ -3,8 +3,7 @@ Scriptname ASPr:Logic:Multibit:NORGate Extends ASPr:Logic:Multibit:LogicGate
 import Binlib
 
 Function Init()
-  Height = 1
-  Width = 1
+  Parent.Init()
   ComponentName = "MultibitNORGate"
 EndFunction
 

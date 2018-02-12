@@ -3,8 +3,7 @@ Scriptname ASPr:Logic:Multibit:NANDGate Extends ASPr:Logic:Multibit:LogicGate
 import Binlib
 
 Function Init()
-  Height = 1
-  Width = 1
+  Parent.Init()
   ComponentName = "MultibitNANDGate"
 EndFunction
 

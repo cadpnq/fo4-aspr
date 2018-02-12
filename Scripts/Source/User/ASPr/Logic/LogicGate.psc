@@ -9,7 +9,6 @@ ASPr:Output Out
 Function Init()
   Height = 1
   Width = 1
-  ComponentName = "LogicGate"
 EndFunction
 
 Function Placed()
