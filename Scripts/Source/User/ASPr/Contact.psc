@@ -9,5 +9,5 @@ Function Close()
 EndFunction
 
 Function Set(bool value)
-  SetOpen(!value)
+  SetOpen(value)
 EndFunction
