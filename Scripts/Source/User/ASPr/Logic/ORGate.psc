@@ -1,4 +1,4 @@
-Scriptname ASPr:Logic:ORGate Extends ASPr:Component
+Scriptname ASPr:Logic:ORGate Extends ASPr:Logic:LogicGate
 
 import Binlib
 

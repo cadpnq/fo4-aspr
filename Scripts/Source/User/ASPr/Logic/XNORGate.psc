@@ -1,4 +1,4 @@
-Scriptname ASPr:Logic:XNORGate Extends ASPr:Component
+Scriptname ASPr:Logic:XNORGate Extends ASPr:Logic:LogicGate
 
 import Binlib
 

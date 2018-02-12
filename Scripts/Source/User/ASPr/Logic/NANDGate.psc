@@ -1,4 +1,4 @@
-Scriptname ASPr:Logic:NANDGate Extends ASPr:Component
+Scriptname ASPr:Logic:NANDGate Extends ASPr:Logic:LogicGate
 
 import Binlib
 
