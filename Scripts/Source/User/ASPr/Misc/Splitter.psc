@@ -20,9 +20,6 @@ Function Placed()
   UpdateState()
 EndFunction
 
-Function Die()
-EndFunction
-
 Function UpdateState()
   WriteOutputs(Outputs, In.value)
 EndFunction

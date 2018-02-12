@@ -21,9 +21,6 @@ Function Placed()
   DataOut.Enabled = True
 EndFunction
 
-Function Die()
-EndFunction
-
 Function OnClock()
   Value = DataIn.value
   DataOut.value = Value

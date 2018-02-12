@@ -23,9 +23,6 @@ Function Placed()
   UpdateState()
 EndFunction
 
-Function Die()
-EndFunction
-
 Function UpdateState()
   If (A.value > B.value)
     Greater.SetHigh()

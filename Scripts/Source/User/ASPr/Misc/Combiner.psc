@@ -20,9 +20,6 @@ Function Placed()
   UpdateState()
 EndFunction
 
-Function Die()
-EndFunction
-
 Function UpdateState()
   Out.value = ReadInputs(Inputs)
 EndFunction

@@ -24,9 +24,6 @@ Function Placed()
   UpdateState()
 EndFunction
 
-Function Die()
-EndFunction
-
 Function UpdateState()
   int sum = A.value + B.value
   If (CarryIn.IsHigh())

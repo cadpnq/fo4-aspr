@@ -45,9 +45,6 @@ Function Placed()
   Clear = InitInput(SIDE_BOTTOM, ORIGIN_DEFAULT, 4, TRIGGER_HIGH, "OnClear")
 EndFunction
 
-Function Die()
-EndFunction
-
 Function OnSelect()
   HandleOutput()
 EndFunction
