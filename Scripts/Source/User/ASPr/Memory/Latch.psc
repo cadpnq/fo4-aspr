@@ -11,7 +11,13 @@ bool Property Value
     Return _Value
   EndFunction
   Function Set(bool Val)
-    _Value = Val
+    If (Preset.IsHigh())
+      _Value = True
+    ElseIf (Clear.IsHIgh())
+      _Value = False
+    Else
+      _Value = Val
+    EndIf
     UpdateOutputs()
   EndFunction
 EndProperty
