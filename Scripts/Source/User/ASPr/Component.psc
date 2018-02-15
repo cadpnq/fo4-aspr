@@ -236,6 +236,7 @@ ObjectReference[] Function InitConnectors(int Type, int Side, int Origin = 0, in
     Where[i].object = c[j]
 
     ASPr:Common.MoveRelativeTo(self, c[j], Where[i].x, 0, Where[i].z)
+    c[j].AttachTo(Self)
 
     If (Type == TYPE_RECEIVER && Trig == TRIGGER_DATA)
       RegisterForCustomEvent(c[j] as DataWire:Receiver, "OnData")
