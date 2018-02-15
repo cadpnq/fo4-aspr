@@ -6,7 +6,7 @@ ASPr:Input Property Clock Auto
 
 Function Init()
   Parent.Init()
-  ComponentName = "JK Flip Flop"
+  ComponentName = "JK Flip-Flop"
 EndFunction
 
 Function Placed()
