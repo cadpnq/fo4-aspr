@@ -2,24 +2,30 @@ Scriptname ASPr:Logic:LogicGate Extends ASPr:Component
 
 Import Binlib
 
-ASPr:Input A
-ASPr:Input B
+int Property InputCount = 2 Auto
+
+ASPr:Input[] Inputs
 ASPr:Output Out
 
 Function Init()
-  Height = 1
+  Height = InputCount
   Width = 1
 EndFunction
 
 Function Placed()
-  A = InitInput(SIDE_TOP, ORIGIN_DEFAULT, 0, TRIGGER_CHANGE, "UpdateState")
-  B = InitInput(SIDE_BOTTOM, ORIGIN_DEFAULT, 0, TRIGGER_CHANGE, "UpdateState")
+  Inputs = InitInputs(SIDE_LEFT, ORIGIN_DEFAULT, 0, InputCount, TRIGGER_CHANGE, "UpdateState")
   Out = InitOutput(SIDE_RIGHT)
   UpdateState()
 EndFunction
 
 Function UpdateState()
-  Out.Set(LogicFunction(A.Value(), B.Value()))
+  bool Value = Inputs[0].Value()
+  int i = 1
+  While (i < InputCount)
+    Value = LogicFunction(Value, Inputs[i].Value())
+    i += 1
+  EndWhile
+  Out.Set(Value)
 EndFunction
 
 bool Function LogicFunction(bool A1, bool A2)
