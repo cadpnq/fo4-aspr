@@ -11,7 +11,7 @@ Function Init()
 EndFunction
 
 Function Placed()
-  Inputs = InitReceivers(SIDE_LEFT, ORIGIN_DEFAULT, 0, InputCount, TRIGGER_DATA, "UpdateState")
+  Inputs = InitReceivers(InputCount, SIDE_LEFT, ORIGIN_DEFAULT, 0, TRIGGER_DATA, "UpdateState")
   Out = InitTransmitter(SIDE_RIGHT, ORIGIN_DEFAULT, 0)
   Out.Enabled = True
   UpdateState()

@@ -15,7 +15,7 @@ EndFunction
 
 Function Placed()
   In = InitReceiver(SIDE_BOTTOM, ORIGIN_DEFAULT, 0, TRIGGER_DATA, "UpdateState")
-  Outputs = InitOutputs(SIDE_TOP, ORIGIN_RIGHT, 0, Size)
+  Outputs = InitOutputs(Size, SIDE_TOP, ORIGIN_RIGHT)
 
   UpdateState()
 EndFunction

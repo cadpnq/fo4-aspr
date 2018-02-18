@@ -14,7 +14,7 @@ Function Init()
 EndFunction
 
 Function Placed()
-  Inputs = InitInputs(SIDE_BOTTOM, ORIGIN_RIGHT, 0, Size, TRIGGER_CHANGE, "UpdateState")
+  Inputs = InitInputs(Size, SIDE_BOTTOM, ORIGIN_RIGHT, 0, TRIGGER_CHANGE, "UpdateState")
   Out = InitTransmitter(SIDE_TOP, ORIGIN_RIGHT)
   Out.enabled = True
   UpdateState()
