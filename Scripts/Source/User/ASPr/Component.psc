@@ -168,6 +168,9 @@ ObjectReference[] Function InitConnectors(int Count, int Type, int Side, int Ori
   ElseIf (Side < 0 || Side > 3)
     Trace("Invalid location", 2)
     Return None
+  ElseIf (Origin < 0 || Origin > 2)
+    Trace("Invalid origin", 2)
+    Return None
   ElseIf (Count <= 0)
     Trace("Cannot init 0 or fewer connectors", 2)
     Return None
@@ -218,12 +221,17 @@ ObjectReference[] Function InitConnectors(int Count, int Type, int Side, int Ori
 
   ObjectReference[] c = MakeObjects(self, ToSpawn, Count)
 
-  int i = Offset
-  int step = 1
-  ; this handles both ORIGIN_DOWN and ORIGIN_RIGHT
-  If (Origin == ORIGIN_DOWN)
+  int i
+  int step
+  If (Origin == ORIGIN_DEFAULT)
+    i = Offset
+    step = 1
+  ElseIf (Origin == ORIGIN_REVERSE)
     i = (Where.Length - 1) - Offset
     step = -1
+  ElseIf (Origin == ORIGIN_MIDDLE)
+    i = ((Where.Length - 1) / 2) + Offset
+    step = 1
   EndIf
 
   int j = 0

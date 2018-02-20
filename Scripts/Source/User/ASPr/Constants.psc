@@ -9,10 +9,12 @@ int Property TYPE_TRANSMITTER = 3 Auto Hidden Const
 int Property TYPE_CONTACT = 4 Auto Hidden Const
 
 int Property ORIGIN_DEFAULT = 0 Auto Hidden Const
+int Property ORIGIN_REVERSE = 1 Auto Hidden Const
 int Property ORIGIN_UP = 0 Auto Hidden Const
 int Property ORIGIN_DOWN = 1 Auto Hidden Const
 int Property ORIGIN_LEFT = 0 Auto Hidden Const
 int Property ORIGIN_RIGHT = 1 Auto Hidden Const
+int Property ORIGIN_MIDDLE = 2 Auto Hidden Const
 
 int Property SIDE_TOP = 0 Auto Hidden Const
 int Property SIDE_BOTTOM = 1 Auto Hidden Const

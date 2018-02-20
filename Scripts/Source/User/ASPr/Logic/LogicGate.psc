@@ -13,8 +13,8 @@ Function Init()
 EndFunction
 
 Function Placed()
-  Inputs = InitInputs(InputCount, SIDE_LEFT, ORIGIN_DEFAULT, 0, TRIGGER_CHANGE, "UpdateState")
-  Out = InitOutput(SIDE_RIGHT)
+  Inputs = InitInputs(InputCount, SIDE_LEFT, ORIGIN_UP, 0, TRIGGER_CHANGE, "UpdateState")
+  Out = InitOutput(SIDE_RIGHT, ORIGIN_MIDDLE)
   UpdateState()
 EndFunction
 
