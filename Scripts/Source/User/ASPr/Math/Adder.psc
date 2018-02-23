@@ -15,7 +15,7 @@ EndFunction
 
 Function Placed()
   A = InitReceiver(SIDE_LEFT, ORIGIN_DEFAULT, 0, TRIGGER_DATA, "UpdateState")
-  B = InitReceiver(SIDE_LEFT, ORIGIN_DEFAULT, 2, TRIGGER_DATA, "UpdateState")
+  B = InitReceiver(SIDE_LEFT, ORIGIN_DOWN, 0, TRIGGER_DATA, "UpdateState")
   Out = InitTransmitter(SIDE_RIGHT)
 
   CarryIn = InitInput(SIDE_TOP, ORIGIN_DEFAULT, 0, TRIGGER_CHANGE, "UpdateState")
