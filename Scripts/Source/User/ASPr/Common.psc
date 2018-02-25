@@ -8,7 +8,7 @@ ObjectReference[] Function MakeObjects(ObjectReference ParentObject, Form Object
 
 	int i = 0
 	While (i < Count)
-		Objects[i] = ParentObject.placeAtMe(Object as Form, 1, True, False, True)
+		Objects[i] = ParentObject.placeAtMe(Object as Form, 1, False, False, True)
 		i += 1
 	EndWhile
 
