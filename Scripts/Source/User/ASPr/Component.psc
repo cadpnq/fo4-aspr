@@ -132,17 +132,19 @@ EndEvent
 Event OnWorkshopObjectDestroyed(ObjectReference akActionRef)
   Die()
   UnregisterForAllRemoteEvents()
+  UnregisterForAllCustomEvents()
 
   ObjectReference Connector
   int i = 0
   While (i < All.Length)
     Connector = All[i].object
-    If (Connector is DataWire:Receiver)
-      DataWire:Receiver.AsReceiver(Connector).Die()
-    Else
-      Connector.Delete()
+    If (Connector)
+      If (All[i].type == TYPE_RECEIVER)
+        (Connector as ASPr:Receiver).Die()
+      Else
+        Connector.Delete()
+      EndIf
     EndIf
-
     i += 1
   EndWhile
 EndEvent
