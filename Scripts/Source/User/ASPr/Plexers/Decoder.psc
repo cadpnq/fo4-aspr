@@ -10,15 +10,15 @@ ASPr:Input Enable
 ASPr:Receiver Select
 
 Function Init()
-  Height = Size
-  Width = 2
+  Height = 1
+  Width = Size
   ComponentName = "Decoder"
 EndFunction
 
 Function Placed()
-  Outputs = InitOutputs(Size, SIDE_RIGHT)
-  Enable = InitInput(SIDE_BOTTOM, ORIGIN_RIGHT, 0, TRIGGER_CHANGE, "UpdateState")
-  Select = InitReceiver(SIDE_BOTTOM, ORIGIN_LEFT, 0, TRIGGER_DATA, "UpdateState")
+  Outputs = InitOutputs(Size, SIDE_TOP, ORIGIN_RIGHT)
+  Enable = InitInput(SIDE_BOTTOM, ORIGIN_DEFAULT, 0, TRIGGER_CHANGE, "UpdateState")
+  Select = InitReceiver(SIDE_BOTTOM, ORIGIN_DEFAULT, 1, TRIGGER_DATA, "UpdateState")
 EndFunction
 
 Function UpdateState()
