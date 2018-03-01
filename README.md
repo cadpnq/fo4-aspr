@@ -40,7 +40,49 @@ EndFunction
 
 ## Component API
 ### `Init`, `Placed`, and `Die`
+### Connector types
+* Input
+* Output
+* Contact
+* Transmitter
+* Receiver
+
 ### Initializing connectors
+
+ ```papyrus
+ASPr:Input Function InitInput(int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
+ASPr:Output Function InitOutput(int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
+ASPr:Contact Function InitContact(int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
+ASPr:Transmitter Function InitTransmitter(int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
+ASPr:Receiver Function InitReceiver(int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
+ ```
+
+* `int Side` - which side of the component to spawn the connector on
+    * `SIDE_TOP`
+    * `SIDE_BOTTOM`
+    * `SIDE_LEFT`
+    * `SIDE_RIGHT`
+* `int Origin`
+    * `ORIGIN_DEFAULT`, `ORIGIN_UP`, `ORIGIN_LEFT`
+    * `ORIGIN_REVERSE`, `ORIGIN_DOWN`, `ORIGIN_RIGHT`
+    * `ORIGIN_MIDDLE`
+* `int Offset` - offset from origin
+* `int Trig` - determines when the handler function is called
+    * `TRIGGER_NONE` - never
+    * `TRIGGER_DATA` - whenever data comes into the receiver
+    * `TRIGGER_CHANGE` - on both a high-low and low-high transition
+    * `TRIGGER_LOW` - on a high-low transition
+    * `TRIGGER_HIGH` - on a low-high transition
+* `string Handler` - the name of the handler function for the connector
+
+```papyrus
+ASPr:Input[] Function InitInputs(int Count, int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
+ASPr:Output[] Function InitOutputs(int Count, int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
+ASPr:Contact[] Function InitContacts(int Count, int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
+ASPr:Transmitter[] Function InitTransmitters(int Count, int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
+ASPr:Receiver[] Function InitReceivers(int Count, int Side, int Origin = 0, int Offset = 0, int Trig = 0, String Handler = "")
+ ```
+
 ### Connector scripts
 #### ASPr:Input
 * `bool Function Value()`
@@ -53,9 +95,9 @@ EndFunction
 * `Function Output.SetLow()`
 
 #### ASPr:Contact
-* `Contact.Set(bool value)`
-* `Contact.Open()`
-* `Contact.Close()`
+* `Function Contact.Set(bool value)`
+* `Function Contact.Open()`
+* `Function Contact.Close()`
 
 #### ASPr:Transmitter
 * `int Value`
