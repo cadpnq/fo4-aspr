@@ -1,6 +1,6 @@
 Scriptname ASPr:Logic:ANDGate Extends ASPr:Logic:LogicGate
 
-import Binlib
+import ASPr:lib:Binlib
 
 Function Init()
   Parent.Init()

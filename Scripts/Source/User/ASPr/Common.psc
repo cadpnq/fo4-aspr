@@ -1,7 +1,7 @@
 Scriptname ASPr:Common
 
 import Math
-import Binlib
+import ASPr:lib:Binlib
 
 ObjectReference[] Function MakeObjects(ObjectReference ParentObject, Form Object, int Count) Global
 	ObjectReference[] Objects = new ObjectReference[Count]

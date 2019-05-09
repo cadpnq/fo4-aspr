@@ -1,6 +1,6 @@
 Scriptname ASPr:Logic:Multibit:NORGate Extends ASPr:Logic:Multibit:LogicGate
 
-import Binlib
+import ASPr:lib:Binlib
 
 Function Init()
   Parent.Init()

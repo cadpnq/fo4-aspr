@@ -1,6 +1,6 @@
 Scriptname ASPr:Logic:LogicGate Extends ASPr:Component
 
-Import Binlib
+import ASPr:lib:Binlib
 
 int Property InputCount = 2 Auto
 
