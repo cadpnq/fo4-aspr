@@ -1,1 +1,1 @@
-Scriptname ASPr:Transmitter Extends DataWire:Transmitter
+Scriptname ASPr:Transmitter Extends ASPr:lib:DataWire:Transmitter

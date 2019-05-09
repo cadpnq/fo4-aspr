@@ -1,1 +1,1 @@
-Scriptname ASPr:Receiver Extends DataWire:Receiver
+Scriptname ASPr:Receiver Extends ASPr:lib:DataWire:Receiver
