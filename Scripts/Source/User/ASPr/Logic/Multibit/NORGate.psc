@@ -4,7 +4,7 @@ import ASPr:lib:Binlib
 
 Function Init()
   Parent.Init()
-  ComponentName = "MultibitNORGate"
+  ComponentName = "Multibit NOR Gate"
 EndFunction
 
 int Function LogicFunction(int A1, int A2)

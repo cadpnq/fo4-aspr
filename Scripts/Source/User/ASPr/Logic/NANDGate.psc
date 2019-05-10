@@ -4,7 +4,7 @@ import ASPr:lib:Binlib
 
 Function Init()
   Parent.Init()
-  ComponentName = "NANDGate"
+  ComponentName = "NAND Gate"
 EndFunction
 
 bool Function LogicFunction(bool A1, bool A2)
