@@ -18,7 +18,7 @@ Event OnWorkshopObjectDestroyed(ObjectReference akActionRef)
   Die()
 EndEvent
 
-Event DataWire:Transmitter.OnDataInternal(ASPr:lib:DataWire:Transmitter Source, Var[] Args)
+Event ASPr:lib:DataWire:Transmitter.OnDataInternal(ASPr:lib:DataWire:Transmitter Source, Var[] Args)
   ProcessData(Args[0] as ASPr:lib:DataWire:Common:Data)
 EndEvent
 
@@ -62,11 +62,11 @@ Event ObjectReference.OnWorkshopMode(ObjectReference akSender, bool aStart)
 
   UnregisterForAllCustomEvents()
   int i = 0
-  DataWire:Transmitter Transmitter
+  ASPr:lib:DataWire:Transmitter Transmitter
   ObjectReference[] Transmitters = GetWorkshop().GetRefsLinkedToMe(dw_transmitter)
 
   While (i < Transmitters.Length)
-    Transmitter = Transmitters[i] as DataWire:Transmitter
+    Transmitter = Transmitters[i] as ASPr:lib:DataWire:Transmitter
     If (Transmitter.HasSharedPowerGrid(Self))
       RegisterForCustomEvent(Transmitter, "OnDataInternal")
       ProcessData(Transmitter.Data)
@@ -108,8 +108,8 @@ Function Die()
   Delete()
 EndFunction
 
-DataWire:Receiver Function AsReceiver(ObjectReference This) Global
-  Return This as DataWire:Receiver
+ASPr:lib:DataWire:Receiver Function AsReceiver(ObjectReference This) Global
+  Return This as ASPr:lib:DataWire:Receiver
 EndFunction
 
 Function Register(ObjectReference This) Global
