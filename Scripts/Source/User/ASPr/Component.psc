@@ -125,7 +125,7 @@ Event ObjectReference.OnPowerOff(ObjectReference Sender)
   Handle_Event(Sender, TRIGGER_LOW)
 EndEvent
 
-Event DataWire:Receiver.OnData(DataWire:Receiver akSender, Var[] akArgs)
+Event ASPr:lib:DataWire:Receiver.OnData(ASPr:lib:DataWire:Receiver akSender, Var[] akArgs)
   Handle_Event(akSender, TRIGGER_DATA)
 EndEvent
 
@@ -249,7 +249,7 @@ ObjectReference[] Function InitConnectors(int Count, int Type, int Side, int Ori
     c[j].AttachTo(Self)
 
     If (Type == TYPE_RECEIVER && Trig == TRIGGER_DATA)
-      RegisterForCustomEvent(c[j] as DataWire:Receiver, "OnData")
+      RegisterForCustomEvent(c[j] as ASPr:lib:DataWire:Receiver, "OnData")
     ElseIf (Type == TYPE_INPUT)
       If (Trig == TRIGGER_LOW || Trig == TRIGGER_CHANGE)
         RegisterForRemoteEvent(c[j], "OnPowerOff")
